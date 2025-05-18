@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var mysql      = require('mysql2');
+        var connection = mysql.createConnection({
+        host     : 'localhost',
+        user     : 'root',
+        password : '1234',
+        database : 'juhyeok'
+    });
+
+    connection.connect();
+    
+    connection.query('SELECT * FROM id_table;', function(err, rows, fields) {
+    if (err) throw err;
+        window.document.writeln(rows);
+    });
+    
+    connection.end();
+    </script>
+</body>
+</html>
