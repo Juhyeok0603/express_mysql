@@ -133,10 +133,24 @@ app.post('/db',(req,res)=>{
             if(err) throw err;
             console.log(rows)
             res.json(rows)
-
         }
     )
+    connection.end();
 })
+
+
+app.post('/db',(req,res)=>{
+    connection.connect();
+
+connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
+    if (err) throw err;
+    console.log('The solution is: ', rows[0].solution);
+});
+
+connection.end();
+})
+
+
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
