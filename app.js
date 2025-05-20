@@ -128,13 +128,18 @@ app.get('/list',(req,res)=>{
 
 app.post('/db',(req,res)=>{
     connection.connect();
-    connection.query(`SELECT * FROM juhyeok.id_table;`,
-        function(err,rows,fields){
-            if(err) throw err;
-            console.log(rows)
-            res.json(rows)
-        }
-    )
+    const id = req.body.id
+    const pw = req.body.pw
+    connection.query(`INSERT INTO juhyeok.id_table(id,pw) VALUE('${id}', '${pw}');`,function(err,rows,fields){
+        res.json(rows)
+    })
+    // connection.query(`SELECT * FROM juhyeok.id_table;`,
+    //     function(err,rows,fields){
+    //         if(err) throw err;
+    //         console.log(rows)
+    //         res.json(rows)
+    //     })
+    
 })
 
 
