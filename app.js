@@ -65,6 +65,7 @@ app.post('/login',(req,res)=>{
                 console.log("비번 확인"+row)
                 res.send(`<script>alert("로그인 성공!");
                 location.href="/login.html";
+                localStorage.setItem('id','${id}')
                 </script>`)
                 
             }else{
@@ -83,8 +84,8 @@ app.post('/login',(req,res)=>{
         }
     });
     
-//login 성공 후 페이지지
-
+    
+//login 성공 후 페이지
 })
 app.get('/login.html',(req,res)=>{
     res.sendFile(__dirname+'/login.html')
@@ -102,6 +103,28 @@ app.get('/list',(req,res)=>{
 })
 
 
+//write
+app.get('/write.html',(req,res)=>{
+    res.sendFile(__dirname+'/write.html')
+})
+
+app.post('/write',(req,res)=>{
+    const title =req.body.title
+    const content = req.body.content
+    connection.connect()
+    connection.query(`INSERT INTO juhyeok.guel(title,content) VALUE('${title}', '${content}');`, function(err,rows,fields){
+        if(err) throw err;
+        console.log(rows)
+        res.send(`<script>
+            alert("작성 완료");
+            location.href="/login.html";
+            </script>`)
+    })
+})
+
+app.get('/guel.html',(req,res)=>{
+    res.sendFile(__dirname+"/guel.html")
+})
 
 app.post('/db',(req,res)=>{
     connection.connect();
