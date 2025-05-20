@@ -103,28 +103,28 @@ app.get('/list',(req,res)=>{
 })
 
 
-//write
-app.get('/write.html',(req,res)=>{
-    res.sendFile(__dirname+'/write.html')
-})
+// //write
+// app.get('/write.html',(req,res)=>{
+//     res.sendFile(__dirname+'/write.html')
+// })
 
-app.post('/write',(req,res)=>{
-    const title =req.body.title
-    const content = req.body.content
-    connection.connect()
-    connection.query(`INSERT INTO juhyeok.guel(title,content) VALUE('${title}', '${content}');`, function(err,rows,fields){
-        if(err) throw err;
-        console.log(rows)
-        res.send(`<script>
-            alert("작성 완료");
-            location.href="/login.html";
-            </script>`)
-    })
-})
+// app.post('/write',(req,res)=>{
+//     const title =req.body.title
+//     const content = req.body.content
+//     connection.connect()
+//     connection.query(`INSERT INTO juhyeok.guel(title,content) VALUE('${title}', '${content}');`, function(err,rows,fields){
+//         if(err) throw err;
+//         console.log(rows)
+//         res.send(`<script>
+//             alert("작성 완료");
+//             location.href="/login.html";
+//             </script>`)
+//     })
+// })
 
-app.get('/guel.html',(req,res)=>{
-    res.sendFile(__dirname+"/guel.html")
-})
+// app.get('/guel.html',(req,res)=>{
+//     res.sendFile(__dirname+"/guel.html")
+// })
 
 app.post('/db',(req,res)=>{
     connection.connect();
@@ -135,20 +135,9 @@ app.post('/db',(req,res)=>{
             res.json(rows)
         }
     )
-    connection.end();
 })
 
 
-app.post('/db',(req,res)=>{
-    connection.connect();
-
-connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
-    if (err) throw err;
-    console.log('The solution is: ', rows[0].solution);
-});
-
-connection.end();
-})
 
 
 
