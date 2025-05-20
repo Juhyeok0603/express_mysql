@@ -7,6 +7,7 @@ mysql 워크벤치에서 테이블 만들기
 >db생성
 create database juhyeok;
 >테이블 생성
+![db&table](https://github.com/Juhyeok0603/express_mysql/blob/main/img/db%26table.png)
 img db&table
 
 
@@ -43,13 +44,14 @@ img db&table
 4. post로 db내용 가져오기
 > 사전 작업
 -> 가져올 테이블을 만들기
-img 테이블 채워두기
+![테이블 채워두기](https://github.com/Juhyeok0603/express_mysql/blob/main/img/%ED%85%8C%EC%9D%B4%EB%B8%94%20%EC%B1%84%EC%9B%8C%EB%91%90%EA%B8%B0.png)
+
 
 -> express.json, express.urlencoded
 express.json은 express에서 json형태의 request body를 파싱하기 위해 사용되는 미들웨어
 express.urlencoded는 post 요청의 body에 인코딩된 데이터를 해석하고, req.body 객체에 채워주는 역할
 각각의 코드를 상단에 배치
-img json_urlencoded
+![json_urlencoded](https://github.com/Juhyeok0603/express_mysql/blob/main/img/json_urlencoded.png)
 
 -> app.js폴더
 서버를 실행할 때 app.()은 method 방식을 지정한다
@@ -57,18 +59,18 @@ app.메소드('요청경로(?)',(req,res)=>{   })
 
 > mysql 연동 코드
 -> app.js에서 작업할 것이기 때문에, mysql의 기본 정보들을 가져온다
-img mysql기본정보
+![mysql기본정보](https://github.com/Juhyeok0603/express_mysql/blob/main/img/mysql%EA%B8%B0%EB%B3%B8%EC%A0%95%EB%B3%B4.png)
 
 > app.post()
 -> app.post로 된 코드를 하나 만들고 mysql에 연결시키는 코드를 넣는다. /db로 접속했을 때 post 요청이 가도록 했다
-img app_post_db
+![app_post_db](https://github.com/Juhyeok0603/express_mysql/blob/main/img/app_post_db.png)
 
 > 코드 수정
 -> 쿼리 부분을 수정해준다. 'SELECT * FROM juhyeok.id_table' 
 -> postman에서 접속했을 때 body내용을 확인하기 위해 에러 처리 아래에 res.json(rows)를 추가
-img 쿼리 수정한 db
+![쿼리 수정한 db](https://github.com/Juhyeok0603/express_mysql/blob/main/img/%EC%BF%BC%EB%A6%AC%20%EC%88%98%EC%A0%95%ED%95%9Cdb.png)
 
 > postman
 -> postman에서 localhost:3000/db에 post로 접속하여 body에 내용이 있는지 확인
-img postman
+![postman](https://github.com/Juhyeok0603/express_mysql/blob/main/img/postman.png)
 
