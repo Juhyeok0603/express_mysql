@@ -24,7 +24,8 @@ create table juhyeok.`id_table`(
 
 > 서버 코드 작성
 -> app.js 파일을 만들고 express사이트 - 시작하기 - hello world에 따라가서 코드 복사
-![mysql 서버용 코드](img/mysql서버용 코드.png)
+![mysql 서버용 코드](https://github.com/Juhyeok0603/express_mysql/blob/main/img/mysql%EC%84%9C%EB%B2%84%EC%9A%A9%20%EC%BD%94%EB%93%9C.png?raw=true)
+
 > 터미널
 -> 터미널에서 node app.js를 치면 localhost:3000에서 서버가 돌아감.
 
